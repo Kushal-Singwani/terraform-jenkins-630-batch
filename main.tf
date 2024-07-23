@@ -21,6 +21,11 @@ provider "aws" {
 
 module "jenkins-class-630-dev" {
   source = "./modules/dev"
+  # define dev modules variables values in terraform
+  name_project = "jenkins-terraform-dev"
+  vpc_dev_cidr = "10.10.0.0/16"
+  vpc_dev_subnet_cidr = ["10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24", "10.10.4.0/24"]
+  vpc_dev_subnet_az = ["ap-south-1a", "ap-south-1b"]
 }
 
 module "jenkins-class-630-prod" {
